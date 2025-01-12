@@ -6,7 +6,7 @@ const server = http.createServer((req, res) => {
     // Set the response HTTP header
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     // Send a response
-    res.end('Nefi Melgar');
+    res.end('Nefi M');
 });
 
 // Define a port
