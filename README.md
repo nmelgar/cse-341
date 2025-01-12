@@ -1,1 +1,1 @@
-# cse-341-byui
+# CSE 341: Web Services
