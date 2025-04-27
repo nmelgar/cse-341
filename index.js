@@ -1,25 +1,23 @@
-// Import the 'http' module
-const http = require('http');
-
-// import the controller
+// mport express
+const express = require('express');
+// import controller
 const { getName } = require('./controllers/controllers');
 
-// create server
-const server = http.createServer((req, res) => {
-    if (req.url === '/' && req.method === 'GET') {
-        // return name when user goes to home page
-        getName(req, res);
-    } else {
-        // not found
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('Page not found');
-    }
+// create express app
+const app = express();
+
+// define route for the home page '/'
+app.get('/', getName);
+
+// handle not found
+app.use((req, res) => {
+    res.status(404).send('Page not found');
 });
 
-// port
+// define a port
 const PORT = 3000;
 
 // start the server
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
