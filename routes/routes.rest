@@ -1,3 +1,4 @@
+# LOCAL ENV TESTS
 ###
 GET http://localhost:3000/
 
@@ -6,3 +7,13 @@ GET http://localhost:3000/contacts
 
 ###
 GET http://localhost:3000/contacts/6814f5a340cdf656cd55d0e1
+
+# PROD ENV TESTS
+###
+GET https://nefi341-test-name.onrender.com/
+
+###
+GET https://nefi341-test-name.onrender.com/contacts/
+
+###
+GET https://nefi341-test-name.onrender.com/contacts/6814f5a340cdf656cd55d0e1
