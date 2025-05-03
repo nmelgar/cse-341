@@ -12,11 +12,10 @@ const app = express();
 app.use(express.json());
 
 // db, establish Mongoose connection
-const MONGODB_URI = process.env.MONGODB_URI;
-mongoose
-  .connect(MONGODB_URI)
-  .then(() => console.log("MongoDB connected via Mongoose"))
-  .catch((err) => console.error("Mongoose connection error:", err));
+mongoose.connect(process.env.MONGODB_URI);
+const db = mongoose.connection;
+db.on("error", (error) => console.error(error));
+db.once("open", () => console.log("Connected to database"));
 
 // get the home page resource
 app.get("/", homePage);
