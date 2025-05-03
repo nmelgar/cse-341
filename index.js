@@ -1,7 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const { getContacts, homePage } = require("./controllers/contactsController");
+const {
+  getContacts,
+  homePage,
+  getOneContact,
+} = require("./controllers/contactsController");
 
 // create express app
 const app = express();
@@ -19,6 +23,9 @@ app.get("/", homePage);
 
 // get the /contacts resource
 app.get("/contacts", getContacts);
+
+// get /contact/id
+app.get("/contacts/:id", getOneContact);
 
 // handle not found
 app.use((req, res) => {

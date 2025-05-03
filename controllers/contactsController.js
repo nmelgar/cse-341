@@ -21,16 +21,17 @@ const getContacts = async (req, res) => {
 };
 
 // GET contact by id
-const getContact = async (req, res) => {
+const getOneContact = async (req, res) => {
   try {
-    const contacts = await Contacts.find();
-    res.json(contacts);
+    const contact = await Contacts.findById(req.params.id);
+    res.json(contact);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: "Contact with specified id doesnt exist" });
   }
 };
 
 module.exports = {
-  getContacts: getContacts,
   homePage: homePage,
+  getContacts: getContacts,
+  getOneContact: getOneContact,
 };

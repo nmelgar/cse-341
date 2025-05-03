@@ -6,5 +6,6 @@ const contactsController = require("../controllers/contactsController");
 router.get("/", contactsController.homePage);
 // GET contacts
 router.get("/contacts", contactsController.getContacts);
-
+// GET contact by id
+router.get("/contacts/:id", contactsController.getOneContact);
 module.exports = router;
