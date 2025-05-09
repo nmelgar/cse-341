@@ -9,3 +9,5 @@ router.get("/contacts", contactsController.getContacts);
 // GET contact by id
 router.get("/contacts/:id", contactsController.getOneContact);
 module.exports = router;
+// POST new contact
+router.post("/contacts", contactsController.postContact);

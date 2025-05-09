@@ -30,8 +30,27 @@ const getOneContact = async (req, res) => {
   }
 };
 
+// POST  | create new contact
+const postContact = async (req, res) => {
+  const contact = new Contacts({
+    name: req.body.name,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday,
+  });
+  try {
+    const newContact = await contact.save();
+    res.status(200).json(newContact);
+  } catch (err) {
+    res.status(400).json({ message: "Error adding the new contact" });
+  }
+};
+
 module.exports = {
   homePage: homePage,
   getContacts: getContacts,
   getOneContact: getOneContact,
+  postContact: postContact,
 };

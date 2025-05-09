@@ -5,6 +5,7 @@ const {
   getContacts,
   homePage,
   getOneContact,
+  postContact,
 } = require("./controllers/contactsController");
 
 // create express app
@@ -25,6 +26,9 @@ app.get("/contacts", getContacts);
 
 // get /contact/id
 app.get("/contacts/:id", getOneContact);
+
+// post/contacts
+app.post("/contacts", postContact);
 
 // handle not found
 app.use((req, res) => {
