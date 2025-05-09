@@ -33,7 +33,6 @@ const getOneContact = async (req, res) => {
 // POST  | create new contact
 const postContact = async (req, res) => {
   const contact = new Contacts({
-    name: req.body.name,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
