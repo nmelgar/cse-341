@@ -8,6 +8,14 @@ router.get("/", contactsController.homePage);
 router.get("/contacts", contactsController.getContacts);
 // GET contact by id
 router.get("/contacts/:id", contactsController.getOneContact);
-module.exports = router;
+
 // POST new contact
 router.post("/contacts", contactsController.postContact);
+
+// modify a contact using PUT
+router.put("/contacts/:id", updateContact);
+
+// delete a contact using DELETE
+// router.delete("/contacts/:id", deleteContact);
+
+module.exports = router;

@@ -1,6 +1,6 @@
 const Contacts = require("../models/contacts.js");
 
-// home page controller
+// return the home page
 const homePage = async (req, res) => {
   try {
     res.writeHead(200, { "Content-Type": "text/plain" });
@@ -10,7 +10,7 @@ const homePage = async (req, res) => {
   }
 };
 
-// contacts controller
+// GET | get all contacts
 const getContacts = async (req, res) => {
   try {
     const contacts = await Contacts.find();
@@ -20,7 +20,7 @@ const getContacts = async (req, res) => {
   }
 };
 
-// GET contact by id
+// GET | get a contact by id
 const getOneContact = async (req, res) => {
   try {
     const contact = await Contacts.findById(req.params.id);
@@ -47,9 +47,41 @@ const postContact = async (req, res) => {
   }
 };
 
+// PUT | update a contact using ID
+const updateContact = async (req, res) => {
+  try {
+    const contact = await Contacts.findById(req.params.id);
+
+    if (!contact) {
+      return res.status(404).json({ message: "Contact not found" });
+    }
+
+    const updatedContact = await Contacts.updateOne(
+      { _id: req.params.id },
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday,
+      }
+    );
+
+    res.json(updatedContact);
+  } catch (err) {
+    res.status(400).json({ message: "Error updating the contact" });
+  }
+};
+
+// DELETE | delete a contact using ID
+// const deleteContact = async (req, res) => {
+// };
+
 module.exports = {
   homePage: homePage,
   getContacts: getContacts,
   getOneContact: getOneContact,
   postContact: postContact,
+  updateContact: updateContact,
+  // deleteContact: deleteContact,
 };
