@@ -7,28 +7,33 @@ if (mongoose.modelNames().includes("Contacts")) {
   Contacts = mongoose.model("Contacts");
   console.log("Contacts model already exists, using the existing definition.");
 } else {
-  const contactsSchema = new mongoose.Schema({
-    firstName: {
-      type: String,
-      required: true,
+  const contactsSchema = new mongoose.Schema(
+    {
+      firstName: {
+        type: String,
+        required: true,
+      },
+      lastName: {
+        type: String,
+        required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+      },
+      favoriteColor: {
+        type: String,
+        required: true,
+      },
+      birthday: {
+        type: Date,
+        required: true,
+      },
     },
-    lastName: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    favoriteColor: {
-      type: String,
-      required: true,
-    },
-    birthday: {
-      type: Date,
-      required: true,
-    },
-  });
+    {
+      versionKey: false,
+    }
+  );
   Contacts = mongoose.model("Contacts", contactsSchema);
   console.log("Contacts model defined.");
 }

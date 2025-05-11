@@ -25,7 +25,7 @@ PUT http://localhost:3000/contacts/6814f5a340cdf656cd55d0e1
 Content-Type: application/json
 
 {
-    "firstName": "Cristiano2",
+    "firstName": "Cristiano Updated",
     "lastName": "Ronaldo",
     "email": "cristianoronaldo@gmail.com",
     "favoriteColor": "blue",

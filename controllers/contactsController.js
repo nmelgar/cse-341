@@ -41,7 +41,7 @@ const postContact = async (req, res) => {
   });
   try {
     const newContact = await contact.save();
-    res.status(200).json(newContact);
+    res.status(201).json(newContact);
   } catch (err) {
     res.status(400).json({ message: "Error adding the new contact" });
   }
