@@ -67,15 +67,27 @@ const updateContact = async (req, res) => {
       }
     );
 
-    res.json(updatedContact);
+    res.status(200).json(updatedContact);
   } catch (err) {
     res.status(400).json({ message: "Error updating the contact" });
   }
 };
 
 // DELETE | delete a contact using ID
-// const deleteContact = async (req, res) => {
-// };
+const deleteContact = async (req, res) => {
+  try {
+    const contact = await Contacts.findById(req.params.id);
+
+    if (!contact) {
+      return res.status(404).json({ message: "Contact not found" });
+    }
+
+    await contact.deleteOne();
+    res.status(204).json({ message: "Contact deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Error deleting the contact" });
+  }
+};
 
 module.exports = {
   homePage: homePage,
@@ -83,5 +95,5 @@ module.exports = {
   getOneContact: getOneContact,
   postContact: postContact,
   updateContact: updateContact,
-  // deleteContact: deleteContact,
+  deleteContact: deleteContact,
 };

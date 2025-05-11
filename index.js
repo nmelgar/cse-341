@@ -7,6 +7,7 @@ const {
   getOneContact,
   postContact,
   updateContact,
+  deleteContact,
 } = require("./controllers/contactsController");
 
 // create express app
@@ -35,7 +36,7 @@ app.post("/contacts", postContact);
 app.put("/contacts/:id", updateContact);
 
 // delete a contact using DELETE
-// app.delete("/contacts/:id", deleteContact);
+app.delete("/contacts/:id", deleteContact);
 
 // handle not found
 app.use((req, res) => {

@@ -21,6 +21,18 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Rafa",
+    "lastName": "Marquez",
+    "email": "rafamarquez@gmail.com",
+    "favoriteColor": "red",
+    "birthday": "1980-09-12"
+}
+
+###
 PUT http://localhost:3000/contacts/6814f5a340cdf656cd55d0e1
 Content-Type: application/json
 
@@ -32,6 +44,9 @@ Content-Type: application/json
     "birthday": "1988-05-19"
 
 }
+
+###
+DELETE http://localhost:3000/contacts/681ff87431eb0ec8ac2bdea6
 
 # PROD ENV TESTS
 ###
