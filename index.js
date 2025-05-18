@@ -36,6 +36,7 @@ const swaggerOptions = {
     servers: [
       {
         url: `http://localhost:${PORT}`,
+        url: "https://nefi341-test-name.onrender.com",
       },
     ],
   },
