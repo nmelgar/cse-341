@@ -37,7 +37,7 @@ The Swagger docs describe all available routes, request parameters, response str
 ---
 
 ## Project Structure
-│
+│<br>
 ├── controllers/ # Request handlers for each route<br>
 ├── models/ # Mongoose models for MongoDB collections<br>
 ├── routes/ # Express route handlers<br>
