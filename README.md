@@ -36,14 +36,15 @@ The Swagger docs describe all available routes, request parameters, response str
 
 ---
 
+## Project Structure
 │
-├── controllers/ # Request handlers for each route
-├── models/ # Mongoose models for MongoDB collections
-├── routes/ # Express route handlers
-├── index.js # App entry point
-├── .env # Environment variables
-├── package.json # Project metadata and dependencies
-└── README.md
+├── controllers/ # Request handlers for each route<br>
+├── models/ # Mongoose models for MongoDB collections<br>
+├── routes/ # Express route handlers<br>
+├── index.js # App entry point<br>
+├── .env # Environment variables<br>
+├── package.json # Project metadata and dependencies<br>
+└── README.md<br>
 
 ---
 
